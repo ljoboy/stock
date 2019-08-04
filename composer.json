@@ -1,0 +1,13 @@
+{
+    "name": "ljoboy/stock",
+    "description": "Une application de gestion de stock",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jonathan Yombo",
+            "email": "jonathanyombo@gmail.com"
+        }
+    ],
+    "minimum-stability": "beta",
+    "require": {}
+}
