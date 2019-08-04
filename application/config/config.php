@@ -23,7 +23,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+$host = $_SERVER['HTTP_HOST'];
+$protocol = is_https() ? "https://" : "http://";
+
+if(is_cli()){
+	$config['base_url'] = "";
+}
+
+else if(stristr($host, "localhost") !== FALSE || (stristr($host, "192.168.") !== FALSE)|| (stristr($host, "127.0.0.") !== FALSE)){
+	$config['base_url'] =  $protocol.$host."/stock/";
+}
+
+else{
+	$allowed = [];
+
+	$config['base_url'] = in_array($host, $allowed) ? $protocol.$host."/stock/" : "http://".$_SERVER['HTTP_HOST']."/";
+}
 
 /*
 |--------------------------------------------------------------------------
@@ -35,7 +50,7 @@ $config['base_url'] = '';
 | variable so that it is blank.
 |
 */
-$config['index_page'] = 'index.php';
+$config['index_page'] = '';
 
 /*
 |--------------------------------------------------------------------------
@@ -64,7 +79,7 @@ $config['uri_protocol']	= 'REQUEST_URI';
 |
 | https://codeigniter.com/user_guide/general/urls.html
 */
-$config['url_suffix'] = '';
+$config['url_suffix'] = '.html';
 
 /*
 |--------------------------------------------------------------------------
@@ -324,7 +339,7 @@ $config['cache_query_string'] = FALSE;
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = hex2bin('4a6520742761696d6520416c6c65677261');
 
 /*
 |--------------------------------------------------------------------------

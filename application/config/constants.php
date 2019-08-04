@@ -83,3 +83,24 @@ defined('EXIT_USER_INPUT')     OR define('EXIT_USER_INPUT', 7); // invalid user 
 defined('EXIT_DATABASE')       OR define('EXIT_DATABASE', 8); // database error
 defined('EXIT__AUTO_MIN')      OR define('EXIT__AUTO_MIN', 9); // lowest automatically-assigned error code
 defined('EXIT__AUTO_MAX')      OR define('EXIT__AUTO_MAX', 125); // highest automatically-assigned error code
+
+/*
+  CONSTANTES DE L'APPLICATION
+  RIEN AVOIR AVEC LE FRAMEWORK
+*/
+// Stock
+defined('STOCK_DEMANDE')   OR define('STOCK_DEMANDE', 0);
+defined('STOCK_ACCEPTED')  OR define('STOCK_ACCEPTED', 1);
+defined('STOCK_RECU')      OR define('STOCK_RECU', 2);
+defined('STOCK_REJECTED')  OR define('STOCK_REJECTED', 3);
+defined('STOCK_INITIAL')   OR define('STOCK_INITIAL', 4);
+
+//User level
+defined('STOCKCTRL_USER')      OR define('STOCKCTRL_USER', 0);
+defined('SUPERVISEUR_USER')    OR define('SUPERVISEUR_USER', 1);
+defined('BUSINESS_USER')  OR define('BUSINESS_USER', 2);
+defined('INVOICER_USER')       OR define('INVOICER_USER', 3);
+
+// Sites
+defined('SITE_NORMAL')      OR define('SITE_NORMAL', 0);
+defined('SITE_ WAREHOUSE') OR define('SITE_ WAREHOUSE', 1);
