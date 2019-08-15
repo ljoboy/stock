@@ -1,0 +1,10 @@
+Stock filter by site
+Transfert from site to the warehouse (description) ==> depouillement
+add glob filter
+====================================================================
+Images of :
+	* Bincard
+	* IJD
+	* Bon de transfert
+====================================================================
+	Add 'Urgent' for stock controll
