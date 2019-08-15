@@ -20,15 +20,14 @@ class Auth extends CI_Controller {
 			$pseudo = $this->input->post('pseudo', true);
 			$mdp = sha1($this->input->post('mdp'));
 			$user = $this->user_model->connectUser($pseudo, $mdp);
-			$type = ['administrateur', 'archiviste', 'agent'];
 			if ($user != null) {
 				$array = array(
-					'id' => $user->id,
-					'login' => $user->pseudo,
+					'id' => $user->id_user,
+					'username' => $user->username,
 					'level' => $user->level,
-					'cree_le' => $user->creer_le,
+					'create_time' => $user->create_time,
 					'nom_complet' => $user->nom_complet,
-					'type' => $type[$user->level],
+					'type' => TYPE[$user->level],
 					'is_connected' => true
 				);
 
