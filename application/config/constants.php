@@ -108,3 +108,4 @@ defined('SITE_ WAREHOUSE')  OR define('SITE_ WAREHOUSE', 1);
 defined('RECORDS_PER_PAGE') OR define('RECORDS_PER_PAGE', 5);
 
 defined('APP_VERSION') OR define('APP_VERSION', '1.0.0');
+defined('APP_NAME') OR define('APP_NAME', 'Stock Control');
