@@ -35,7 +35,7 @@
 						<td><?php echo $t['date_reception']; ?></td>
 						<td><?php echo $t['details']; ?></td>
 						<td>
-                            <a href="<?php echo site_url('transfert/edit/'.$t['id_transfert']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> > Modifier</a>
+                            <a href="<?php echo site_url('transfert/edit/'.$t['id_transfert']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></spanModifier</a>
                             <a href="<?php echo site_url('transfert/remove/'.$t['id_transfert']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Effacer</a>
                         </td>
                     </tr>

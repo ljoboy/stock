@@ -36,7 +36,7 @@
 <body class="hold-transition login-page">
 <div class="login-box">
 	<div class="login-logo">
-		<a href="<?= base_url(); ?>"><?= APP_NAME ?></a>
+		<a href="<?= base_url(); ?>"><?= APP_NAME_FULL ?></a>
 	</div>
 	<!-- /.login-logo -->
 	<div class="login-box-body">
@@ -88,9 +88,6 @@
 
 		<div class="social-auth-links text-center">
 			<p>- OU -</p>
-			<!--			<a href="--><?//= site_url('auth/ajouter'); ?><!--" class="btn btn-block btn-social btn-facebook btn-flat"><i-->
-			<!--					class="fa fa-user-plus"></i>-->
-			<!--				Créer un compte</a>-->
 			<a href="<?= site_url('auth/modifier') ?>" class="btn btn-block btn-social btn-google btn-flat"><i
 					class="fa fa-unlock-alt"></i>
 				Mot de passe oublié ?</a>
@@ -98,7 +95,7 @@
 	</div>
 	<!-- /.login-box-body -->
 	<footer class="footer text-center">
-		<b>Code with <i class="fa fa-heart text-red"></i> by <a href="#">Laure MWANSA</a></b>
+		<b>Code with <i class="fa fa-heart text-red"></i> by <a target="_blank" href="https://about.me/ljoboy">Lijerbul LJOBOY</a></b>
 	</footer>
 </div>
 <!-- /.login-box -->

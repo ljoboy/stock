@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>STK Management</title>
+	<title><?php echo APP_NAME_FULL ?></title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<!-- Bootstrap 3.3.6 -->
@@ -25,11 +25,11 @@
 <div class="wrapper">
 	<header class="main-header">
 		<!-- Logo -->
-		<a href="" class="logo">
+		<a href="<?php echo index_page()?>" class="logo">
 			<!-- mini logo for sidebar mini 50x50 pixels -->
-			<span class="logo-mini">STK Management</span>
+			<span class="logo-mini"><?php echo APP_NAME_MINI ?></span>
 			<!-- logo for regular state and mobile devices -->
-			<span class="logo-lg">STK Management</span>
+			<span class="logo-lg"><?php echo APP_NAME_FULL ?></span>
 		</a>
 		<!-- Header Navbar: style can be found in header.less -->
 		<nav class="navbar navbar-static-top">
@@ -47,7 +47,7 @@
 					<li class="dropdown user user-menu">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
 							<img src="<?php echo base_url('assets/img/user2-160x160.jpg');?>" class="user-image" alt="User Image">
-							<span class="hidden-xs">Jo Yombo</span>
+							<span class="hidden-xs"><?php echo ucwords($this->session->username); ?></span>
 						</a>
 						<ul class="dropdown-menu">
 							<!-- User image -->
@@ -55,17 +55,17 @@
 								<img src="<?php echo base_url('assets/img/user2-160x160.jpg');?>" class="img-circle" alt="User Image">
 
 								<p>
-									Jo Yombo - Web Developer
-									<small>Member since Nov. 2012</small>
+									<?php echo ucwords($this->session->nom_complet.' - '. $this->session->type); ?>
+									<small>Agent depuis le <?= nice_date($this->session->create_time,"d M Y") ?></small>
 								</p>
 							</li>
 							<!-- Menu Footer-->
 							<li class="user-footer">
 								<div class="pull-left">
-									<a href="#" class="btn btn-default btn-flat">Profile</a>
+									<a href="<?php echo site_url('auth/profil') ?>" class="btn btn-default btn-flat">Profil</a>
 								</div>
 								<div class="pull-right">
-									<a href="#" class="btn btn-default btn-flat">Sign out</a>
+									<a href="<?php echo site_url('auth/logout') ?>" class="btn btn-default btn-flat">Déconnexion</a>
 								</div>
 							</li>
 						</ul>
@@ -84,105 +84,105 @@
 					<img src="<?php echo base_url('assets/img/user2-160x160.jpg');?>" class="img-circle" alt="User Image">
 				</div>
 				<div class="pull-left info">
-					<p>Jo Yombo</p>
+					<p><?php echo ucwords($this->session->nom_complet); ?></p>
 					<a href="#"><i class="fa fa-circle text-success"></i> Online</a>
 				</div>
 			</div>
 			<!-- sidebar menu: : style can be found in sidebar.less -->
 			<ul class="sidebar-menu">
 				<li class="header">MENU PRINCIPAL</li>
-				<li>
-					<a href="<?php echo site_url();?>">
+				<li class="<?php echo current_page('dashboard') ?>">
+					<a href="<?php echo site_url('dashboard/index');?>">
 						<i class="fa fa-dashboard"></i> <span>Tableau de bord</span>
 					</a>
 				</li>
-				<li>
+				<li class="<?php echo current_page('article') ?>">
 					<a href="#">
 						<i class="fa fa-cart-arrow-down"></i> <span>Article</span>
 					</a>
 					<ul class="treeview-menu">
-						<li class="active">
+						<li class="<?php echo current_page('article/add') ?>">
 							<a href="<?php echo site_url('article/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
 						</li>
-						<li>
+						<li class="<?php echo current_page('article/index') ?>">
 							<a href="<?php echo site_url('article/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="<?php echo current_page('articles_site') ?>">
 					<a href="#">
 						<i class="fa fa-ambulance"></i> <span>Articles Site</span>
 					</a>
 					<ul class="treeview-menu">
-						<li class="active">
+						<li class="<?php echo current_page('articles_site/add') ?>">
 							<a href="<?php echo site_url('articles_site/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
 						</li>
-						<li>
+						<li class="<?php echo current_page('articles_site/index') ?>">
 							<a href="<?php echo site_url('articles_site/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="<?php echo current_page('notification') ?>">
 					<a href="#">
 						<i class="fa fa-bell"></i> <span>Notification</span>
 					</a>
 					<ul class="treeview-menu">
-						<li class="active">
+						<li class="<?php echo current_page('notification/add') ?>">
 							<a href="<?php echo site_url('notification/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
 						</li>
-						<li>
+						<li class="<?php echo current_page('notification/index') ?>">
 							<a href="<?php echo site_url('notification/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="<?php echo current_page('site') ?>">
 					<a href="#">
 						<i class="fa fa-map-marker"></i> <span>Site</span>
 					</a>
 					<ul class="treeview-menu">
-						<li class="active">
+						<li class="<?php echo current_page('site/add') ?>">
 							<a href="<?php echo site_url('site/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
 						</li>
-						<li>
+						<li class="<?php echo current_page('site/index') ?>">
 							<a href="<?php echo site_url('site/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="<?php echo current_page('sorti') ?>">
 					<a href="#">
 						<i class="fa fa-paper-plane-o"></i> <span>Sorti</span>
 					</a>
 					<ul class="treeview-menu">
-						<li class="active">
+						<li class="<?php echo current_page('sorti/add') ?>">
 							<a href="<?php echo site_url('sorti/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
 						</li>
-						<li>
+						<li class="<?php echo current_page('sorti/index') ?>">
 							<a href="<?php echo site_url('sorti/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="<?php echo current_page('transfert') ?>">
 					<a href="#">
 						<i class="fa fa-arrow-right"></i> <span>Transfert</span>
 					</a>
 					<ul class="treeview-menu">
-						<li class="active">
+						<li class="<?php echo current_page('transfert/add') ?>">
 							<a href="<?php echo site_url('transfert/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
 						</li>
-						<li>
+						<li class="<?php echo current_page('transfert/index') ?>">
 							<a href="<?php echo site_url('transfert/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
 						</li>
 					</ul>
 				</li>
-				<li>
+				<li class="<?php echo current_page('user') ?>">
 					<a href="#">
 						<i class="fa fa-user-circle"></i> <span>User</span>
 					</a>
 					<ul class="treeview-menu">
-						<li class="active">
+						<li class="<?php echo current_page('user/add') ?>">
 							<a href="<?php echo site_url('user/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
 						</li>
-						<li>
+						<li class="<?php echo current_page('user/index') ?>">
 							<a href="<?php echo site_url('user/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
 						</li>
 					</ul>

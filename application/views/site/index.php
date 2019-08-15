@@ -25,7 +25,7 @@
 						<td><?php echo $s['nom_site']; ?></td>
 						<td><?php echo $s['details']; ?></td>
 						<td>
-                            <a href="<?php echo site_url('site/edit/'.$s['id_site']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> > Modifier</a>
+                            <a href="<?php echo site_url('site/edit/'.$s['id_site']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></spanModifier</a>
                             <a href="<?php echo site_url('site/remove/'.$s['id_site']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Effacer</a>
                         </td>
                     </tr>

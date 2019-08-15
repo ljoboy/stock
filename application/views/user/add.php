@@ -50,7 +50,7 @@
 								<option value="<?php echo STOCKCTRL_USER ?>" <?php echo (STOCKCTRL_USER == $this->input->post('level')) ? ' selected="selected"' : "" ?>>Stock Controller</option>
 								<option value="<?php echo SUPERVISEUR_USER ?>" <?php echo (SUPERVISEUR_USER == $this->input->post('level')) ? ' selected="selected"' : "" ?>>Superviseur</option>
 								<option value="<?php echo BUSINESS_USER ?>" <?php echo (BUSINESS_USER == $this->input->post('level')) ? ' selected="selected"' : "" ?>>Business level</option>
-								<option value="<?php echo INVOICER_USER ?>" <?php echo (INVOICER_USER == $this->input->post('level')) ? ' selected="selected"' : "" ?>>Directeur Technique</option>
+								<option value="<?php echo SUPER_ADMIN ?>" <?php echo (SUPER_ADMIN == $this->input->post('level')) ? ' selected="selected"' : "" ?>>Directeur Technique</option>
 							</select>
 						</div>
 					</div>

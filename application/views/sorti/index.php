@@ -27,7 +27,7 @@
 						<td><?php echo $s['nom_client']; ?></td>
 						<td><?php echo $s['ijd']; ?></td>
 						<td>
-                            <a href="<?php echo site_url('sorti/edit/'.$s['id_sorti']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> > Modifier</a>
+                            <a href="<?php echo site_url('sorti/edit/'.$s['id_sorti']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Modifier</a>
                             <a href="<?php echo site_url('sorti/remove/'.$s['id_sorti']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Effacer</a>
                         </td>
                     </tr>
