@@ -10,7 +10,7 @@ class User_model extends CI_Model
     {
         parent::__construct();
     }
-    
+
     /*
      * Get user by id_user
      */
@@ -53,4 +53,9 @@ class User_model extends CI_Model
     {
         return $this->db->delete('users',array('id_user'=>$id_user));
     }
+
+	function connectUser($pseudo, $mdp)
+	{
+		return $this->db->get_where('users', array('username' => $pseudo, 'password' => $mdp))->row();
+	}
 }
