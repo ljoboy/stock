@@ -8,6 +8,9 @@ class User extends CI_Controller{
     function __construct()
     {
         parent::__construct();
+		if (!isset($this->session->is_connected)){
+			redirect('auth/index');
+		}
         $this->load->model('User_model');
     } 
 

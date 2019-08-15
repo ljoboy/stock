@@ -8,7 +8,9 @@ class Dashboard extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-        
+		if (!isset($this->session->is_connected)){
+			redirect('auth/index');
+		}
     }
 
     function index()
