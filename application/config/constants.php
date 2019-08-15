@@ -99,7 +99,7 @@ defined('STOCK_INITIAL')   OR define('STOCK_INITIAL', 4);
 defined('STOCKCTRL_USER')      OR define('STOCKCTRL_USER', 0);
 defined('SUPERVISEUR_USER')    OR define('SUPERVISEUR_USER', 1);
 defined('BUSINESS_USER')       OR define('BUSINESS_USER', 2);
-defined('INVOICER_USER')       OR define('INVOICER_USER', 3);
+defined('SUPER_ADMIN')       OR define('SUPER_ADMIN', 3);
 
 // Sites
 defined('SITE_NORMAL')      OR define('SITE_NORMAL', 0);
@@ -108,4 +108,7 @@ defined('SITE_ WAREHOUSE')  OR define('SITE_ WAREHOUSE', 1);
 defined('RECORDS_PER_PAGE') OR define('RECORDS_PER_PAGE', 5);
 
 defined('APP_VERSION') OR define('APP_VERSION', '1.0.0');
-defined('APP_NAME') OR define('APP_NAME', 'Stock Control');
+defined('APP_NAME_FULL') OR define('APP_NAME_FULL', 'STK Management');
+defined('APP_NAME_MINI') OR define('APP_NAME_MINI', 'STK');
+
+defined('TYPE') OR define('TYPE', ['stock controller',' superviseur',  'directeur technique', 'super admin']);
