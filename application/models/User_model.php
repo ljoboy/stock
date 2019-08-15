@@ -56,6 +56,6 @@ class User_model extends CI_Model
 
 	function connectUser($pseudo, $mdp)
 	{
-		return $this->db->get_where('users', array('username' => $pseudo, 'password' => $mdp))->row();
+		return $this->db->get_where('users', array('username' => $pseudo, 'password' => $mdp, 'status' => 1))->row();
 	}
 }
