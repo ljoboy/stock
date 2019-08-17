@@ -121,5 +121,13 @@ class User extends CI_Controller{
         else
             show_error('The user you are trying to delete does not exist.');
     }
-    
+
+
+	function active($id = null, $val = null)
+	{
+		if ($id == null || $val == null)
+			show_error("Mauvaise manipulation, veuillez contacter l'administarteur si ce message persiste");
+		$val = ($val == 0) ? 1 : 0;
+		$this->User_model->active($id, $val);
+	}
 }

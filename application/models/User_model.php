@@ -58,4 +58,11 @@ class User_model extends CI_Model
 	{
 		return $this->db->get_where('users', array('username' => $pseudo, 'password' => $mdp, 'status' => 1))->row();
 	}
+
+	function active($id, $val)
+	{
+		$this->db->set('status', $val);
+		$this->db->where('id_user', $id);
+		return $this->db->update('users');
+	}
 }
