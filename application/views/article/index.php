@@ -27,7 +27,7 @@
 						<td><?php echo $a['qte_min']; ?></td>
 						<td><?php echo $a['date_creation']; ?></td>
 						<td>
-                            <a href="<?php echo site_url('article/edit/'.$a['id_article']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></spanModifier</a>
+                            <a href="<?php echo site_url('article/edit/'.$a['id_article']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span>Modifier</a>
                             <a href="<?php echo site_url('article/remove/'.$a['id_article']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Effacer</a>
                         </td>
                     </tr>

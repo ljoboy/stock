@@ -11,7 +11,7 @@
 	<!-- Font Awesome -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
 	<!-- Ionicons -->
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/ionicons.min.css'); ?>">
 	<!-- Datetimepicker -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datetimepicker.min.css');?>">
 	<!-- Theme style -->
@@ -19,6 +19,7 @@
 	<!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/_all-skins.min.css');?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/style.css') ?>">
 </head>
 
 <body class="hold-transition skin-blue sidebar-mini">
@@ -249,7 +250,23 @@
 <script src="<?php echo base_url('assets/js/demo.js');?>"></script>
 <!-- DatePicker -->
 <script src="<?php echo base_url('assets/js/moment.js');?>"></script>
-<script src="<?php echo base_url('assets/js/bootstrap-datetimepicker.min.js');?>"></script>
 <script src="<?php echo base_url('assets/js/global.js');?>"></script>
+<script src="<?php echo base_url('assets/js/bootstrap-datetimepicker.min.js');?>"></script>
+<script>
+    //Date picker
+    $('#datepicker').datepicker({
+        autoclose: true
+    })
+</script>
+<script>
+    function desactiver(id, val) {
+        $.get( "active/"+id+"/"+val, function( data ) {
+        }).done(function() {
+            console.log( "Modifier avec succes !" );
+        }).fail(function() {
+            alert( "Erreur inattendu ! Veuillez réesayer plutard..." );
+        });
+    }
+</script>
 </body>
 </html>
