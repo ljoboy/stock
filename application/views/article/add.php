@@ -36,26 +36,16 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="date_creation" class="control-label"><span class="text-danger">*</span>Date Creation</label>
+						<label for="datepicker" class="control-label"><span class="text-danger">*</span>Date Creation</label>
 						<div class="form-group">
-							<input type="text" name="date_creation" value="<?php echo $this->input->post('date_creation'); ?>" class="form-control" id="date_creation" />
-							<span class="text-danger"><?php echo form_error('date_creation');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<!-- Date -->
-						<div class="form-group">
-							<label>Date:</label>
-
 							<div class="input-group date">
 								<div class="input-group-addon">
 									<i class="fa fa-calendar"></i>
 								</div>
-								<input type="text" class="form-control pull-right" id="datepicker">
+								<input type="text" name="date_creation" value="<?php echo $this->input->post('date_creation'); ?>" class="form-control pull-right" id="datepicker" />
 							</div>
-							<!-- /.input group -->
+							<span class="text-danger"><?php echo form_error('date_creation');?></span>
 						</div>
-						<!-- /.form group -->
 					</div>
 				</div>
 			</div>

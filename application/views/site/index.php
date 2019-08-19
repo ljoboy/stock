@@ -8,30 +8,43 @@
                 </div>
             </div>
             <div class="box-body">
-                <table class="table table-striped">
-                    <tr>
+                <table id="liste1" class="table table-bordered table-striped">
+					<thead>
+						<tr>
+							<th>Id Site</th>
+							<th>Type</th>
+							<th>Superviseur</th>
+							<th>Nom Site</th>
+							<th>Details</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+                   <tbody>
+					   <?php foreach($sites as $s){ ?>
+						   <tr>
+							   <td><?php echo $s['id_site']; ?></td>
+							   <td><?php echo $s['type']; ?></td>
+							   <td><?php echo $s['superviseur']; ?></td>
+							   <td><?php echo $s['nom_site']; ?></td>
+							   <td><?php echo $s['details']; ?></td>
+							   <td>
+								   <a href="<?php echo site_url('site/edit/'.$s['id_site']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span>Modifier</a>
+								   <a href="<?php echo site_url('site/remove/'.$s['id_site']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Effacer</a>
+							   </td>
+						   </tr>
+					   <?php } ?>
+				   </tbody>
+					<tfoot>
+					<tr>
 						<th>Id Site</th>
 						<th>Type</th>
 						<th>Superviseur</th>
 						<th>Nom Site</th>
 						<th>Details</th>
 						<th>Actions</th>
-                    </tr>
-                    <?php foreach($sites as $s){ ?>
-                    <tr>
-						<td><?php echo $s['id_site']; ?></td>
-						<td><?php echo $s['type']; ?></td>
-						<td><?php echo $s['superviseur']; ?></td>
-						<td><?php echo $s['nom_site']; ?></td>
-						<td><?php echo $s['details']; ?></td>
-						<td>
-                            <a href="<?php echo site_url('site/edit/'.$s['id_site']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></spanModifier</a>
-                            <a href="<?php echo site_url('site/remove/'.$s['id_site']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Effacer</a>
-                        </td>
-                    </tr>
-                    <?php } ?>
+					</tr>
+					</tfoot>
                 </table>
-                                
             </div>
         </div>
     </div>

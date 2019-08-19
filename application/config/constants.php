@@ -95,11 +95,21 @@ defined('STOCK_RECU')      OR define('STOCK_RECU', 2);
 defined('STOCK_REJECTED')  OR define('STOCK_REJECTED', 3);
 defined('STOCK_INITIAL')   OR define('STOCK_INITIAL', 4);
 
+
+
+
+
+
+
+
+
+
+
 //User level
 defined('STOCKCTRL_USER')      OR define('STOCKCTRL_USER', 0);
 defined('SUPERVISEUR_USER')    OR define('SUPERVISEUR_USER', 1);
 defined('BUSINESS_USER')       OR define('BUSINESS_USER', 2);
-defined('SUPER_ADMIN')       OR define('SUPER_ADMIN', 3);
+defined('SUPER_ADMIN')       OR define('SUPER_ADMIN', 3); // Manager
 
 // Sites
 defined('SITE_NORMAL')      OR define('SITE_NORMAL', 0);

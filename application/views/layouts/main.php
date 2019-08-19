@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/ionicons.min.css'); ?>">
+	<!-- Data Tables -->
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.dataTable.css') ?>">
 	<!-- Datetimepicker -->
 	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datetimepicker.min.css');?>">
 	<!-- Theme style -->
@@ -242,6 +244,11 @@
 <script src="<?php echo base_url('assets/js/jquery-2.2.3.min.js');?>"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
+<!--Data Tables-->
+<script src="<?php echo base_url('assets/js/bootstrap.dataTable.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/jquery.dataTable.min.js') ?>"></script>
+<!--SLim Scroll-->
+<script src="<?php echo base_url('assets/js/jquery.slimscroll.min.js') ?>"></script>
 <!-- FastClick -->
 <script src="<?php echo base_url('assets/js/fastclick.js');?>"></script>
 <!-- AdminLTE App -->
@@ -253,10 +260,16 @@
 <script src="<?php echo base_url('assets/js/global.js');?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap-datetimepicker.min.js');?>"></script>
 <script>
-    //Date picker
-    $('#datepicker').datepicker({
-        autoclose: true
-    })
+
+    $(function () {
+        $('#liste1').DataTable();
+		//Date picker
+        $('#datepicker').datepicker({
+            autoclose: true,
+            format: 'yyyy-mm-dd'
+        });
+
+    });
 </script>
 <script>
     function desactiver(id, val) {
