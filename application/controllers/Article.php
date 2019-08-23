@@ -29,9 +29,7 @@ class Article extends CI_Controller{
      * Adding a new article
      */
     function add()
-    {   
-        $this->load->library('form_validation');
-
+	{
 		$this->form_validation->set_rules('code','Code','required|max_length[45]');
 		$this->form_validation->set_rules('fournisseur','Fournisseur','required|max_length[50]');
 		$this->form_validation->set_rules('qte','Qte','required|integer');
@@ -68,8 +66,6 @@ class Article extends CI_Controller{
         
         if(isset($data['article']['id_article']))
         {
-            $this->load->library('form_validation');
-
 			$this->form_validation->set_rules('code','Code','required|max_length[45]');
 			$this->form_validation->set_rules('fournisseur','Fournisseur','required|max_length[50]');
 			$this->form_validation->set_rules('qte','Qte','required|integer');
@@ -115,5 +111,12 @@ class Article extends CI_Controller{
         else
             show_error("L'article que vous essayer de supprimer n'existe pas");
     }
-    
+
+	public function test()
+	{
+		$data['articles'] = $this->Article_model->get_all_articles();
+
+		$data['_view'] = 'article/index';
+		$this->load->view('layouts/main2', $data);
+	}
 }
