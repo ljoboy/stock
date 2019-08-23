@@ -50,4 +50,10 @@ class Auth extends CI_Controller {
 		redirect();
 	}
 
+	function lock(){
+		$this->logout();
+		$data['title'] = "verouiller";
+		$this->load->view('layouts/lock', $data, FALSE);
+	}
+
 }
