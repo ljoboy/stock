@@ -4,7 +4,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title><?= APP_NAME_FULL ?> | <?= isset($title) ? ucfirst($title) : 'Vos archives en sécurité' ?></title>
+	<title><?= APP_NAME_FULL ?> | <?= isset($title) ? ucfirst($title) : 'Stock Management' ?></title>
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<!-- Bootstrap 3.3.6 -->
@@ -49,13 +49,6 @@
 				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
 				<h4><i class="icon fa fa-ban"></i> Alerte !</h4>
 				<?= $this->session->error ?>
-			</div>
-		<?php elseif (isset($this->session->succes)) :
-			?>
-			<div class="alert alert-success alert-dismissible">
-				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-				<h4><i class="icon fa fa-check"></i> Alerte !</h4>
-				<?= $this->session->succes ?>
 			</div>
 		<?php endif; ?>
 
@@ -104,6 +97,9 @@
 <script src="<?= base_url('assets/js/jquery-2.2.3.min.js'); ?>"></script>
 <!-- Bootstrap 3.3.7 -->
 <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
+<script>
+
+</script>
 </body>
 
 </html>
