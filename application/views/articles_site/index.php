@@ -26,8 +26,8 @@
 						   <td><?php echo $a['id_articles_site']; ?></td>
 						   <td><?php echo $a['id_article']; ?></td>
 						   <td><?php echo $a['id_site']; ?></td>
-						   <td><?php echo $a['qte_min']; ?></td>
-						   <td><?php echo $a['qte']; ?></td>
+						   <td><?php echo (int)$a['qte_min']; ?></td>
+						   <td><?php echo (int)$a['qte']; ?></td>
 						   <td><?php echo $a['date_update']; ?></td>
 						   <td>
 							   <a href="<?php echo site_url('articles_site/edit/'.$a['id_articles_site']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span>Modifier</a>
