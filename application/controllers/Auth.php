@@ -40,7 +40,7 @@ class Auth extends CI_Controller {
 			}
 		} else {
 			$data['title'] = "page d'authentification";
-			$this->load->view('layouts/login', $data, FALSE);
+			$this->load->view('layouts/login', $data, false);
 		}
 	}
 
@@ -51,9 +51,25 @@ class Auth extends CI_Controller {
 	}
 
 	function lock(){
-		$this->logout();
-		$data['title'] = "verouiller";
-		$this->load->view('layouts/lock', $data, FALSE);
+		$this->form_validation->set_rules('mdp', 'mot de passe', 'required', ['required' => 'Le %s est obligatoire']);
+		if ($this->form_validation->run() == TRUE) {
+			$pseudo = $this->session->userdata('username');
+			$mdp = sha1($this->input->post('mdp'));
+			$user = $this->user_model->connectUser($pseudo, $mdp);
+			if ($user != null) {
+				$array = array('id' => $user->id_user, 'username' => $user->username, 'level' => $user->level, 'create_time' => $user->create_time, 'nom_complet' => $user->nom_complet, 'type' => TYPE[$user->level], 'is_connected' => true);
+
+				$this->session->set_userdata($array);
+				redirect('dashboard/index');
+			} else {
+				$this->session->set_flashdata('error', "<h3>Echec d'authentification !</h3> Combinaison <strong>Pseudo / Mot de passe</strong> Incorrecte !");
+				redirect('auth/lock');
+			}
+		} else {
+			$this->session->unset_userdata('is_connected');
+			$data['title'] = "verouiller";
+			$this->load->view('layouts/lock', $data, false);
+		}
 	}
 
 }
