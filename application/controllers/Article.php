@@ -32,7 +32,6 @@ class Article extends CI_Controller{
 	{
 		$this->form_validation->set_rules('code','Code','required|max_length[45]');
 		$this->form_validation->set_rules('fournisseur','Fournisseur','required|max_length[50]');
-		$this->form_validation->set_rules('qte','Qte','required|integer');
 		$this->form_validation->set_rules('qte_min','Qte Min','required|integer');
 		$this->form_validation->set_rules('date_creation','Date Creation','required');
 		
@@ -41,9 +40,7 @@ class Article extends CI_Controller{
             $params = array(
 				'code' => $this->input->post('code'),
 				'fournisseur' => $this->input->post('fournisseur'),
-				'qte' => $this->input->post('qte'),
 				'qte_min' => $this->input->post('qte_min'),
-				'date_creation' => $this->input->post('date_creation'),
             );
             
             $article_id = $this->Article_model->add_article($params);
@@ -68,18 +65,14 @@ class Article extends CI_Controller{
         {
 			$this->form_validation->set_rules('code','Code','required|max_length[45]');
 			$this->form_validation->set_rules('fournisseur','Fournisseur','required|max_length[50]');
-			$this->form_validation->set_rules('qte','Qte','required|integer');
 			$this->form_validation->set_rules('qte_min','Qte Min','required|integer');
-			$this->form_validation->set_rules('date_creation','Date Creation','required');
 		
 			if($this->form_validation->run())     
             {   
                 $params = array(
 					'code' => $this->input->post('code'),
 					'fournisseur' => $this->input->post('fournisseur'),
-					'qte' => $this->input->post('qte'),
 					'qte_min' => $this->input->post('qte_min'),
-					'date_creation' => $this->input->post('date_creation'),
                 );
 
                 $this->Article_model->update_article($id_article,$params);            
