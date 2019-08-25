@@ -14,7 +14,6 @@
 							<th>Id Article</th>
 							<th>Code</th>
 							<th>Fournisseur</th>
-							<th>Qte</th>
 							<th>Qte Min</th>
 							<th>Date Creation</th>
 							<th>Actions</th>
@@ -26,8 +25,7 @@
 								<td><?php echo $a['id_article']; ?></td>
 								<td><?php echo $a['code']; ?></td>
 								<td><?php echo $a['fournisseur']; ?></td>
-								<td><?php echo $a['qte']; ?></td>
-								<td><?php echo $a['qte_min']; ?></td>
+								<td><?php echo (int)$a['qte_min']; ?></td>
 								<td><?php echo $a['date_creation']; ?></td>
 								<td>
 									<a href="<?php echo site_url('article/edit/'.$a['id_article']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span>Modifier</a>
@@ -41,7 +39,6 @@
 						<th>Id Article</th>
 						<th>Code</th>
 						<th>Fournisseur</th>
-						<th>Qte</th>
 						<th>Qte Min</th>
 						<th>Date Creation</th>
 						<th>Actions</th>
