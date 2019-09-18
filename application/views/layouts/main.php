@@ -246,8 +246,10 @@
 <!-- Bootstrap 3.3.6 -->
 <script src="<?php echo base_url('assets/js/bootstrap.min.js');?>"></script>
 <!--Data Tables-->
-<script src="<?php echo base_url('assets/js/bootstrap.dataTable.min.js') ?>"></script>
 <script src="<?php echo base_url('assets/js/jquery.dataTable.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/bootstrap.dataTable.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/buttons.dataTables.min.js') ?>"></script>
+<script src="<?php echo base_url('assets/js/datatable.buttons.min.js') ?>"></script>
 <!--SLim Scroll-->
 <script src="<?php echo base_url('assets/js/jquery.slimscroll.min.js') ?>"></script>
 <!-- FastClick -->
@@ -261,15 +263,12 @@
 <script src="<?php echo base_url('assets/js/global.js');?>"></script>
 <script src="<?php echo base_url('assets/js/bootstrap-datetimepicker.min.js');?>"></script>
 <script>
-
     $(function () {
-        $('#liste1').DataTable();
 		//Date picker
         $('#datepicker').datepicker({
             autoclose: true,
             format: 'yyyy-mm-dd'
         });
-
     });
 </script>
 <script>
@@ -281,6 +280,56 @@
             alert( "Erreur inattendu ! Veuillez réesayer plutard..." );
         });
     }
+</script>
+<script>
+    $("liste1").DataTable({
+        dom: "Blfrtip",
+        language: {
+            processing: "Traitement en cours...",
+            search: "Rechercher&nbsp;:",
+            lengthMenu: "Afficher _MENU_ &eacute;l&eacute;ments",
+            info: "Affichage de l'&eacute;lement _START_ &agrave; _END_ sur _TOTAL_ &eacute;l&eacute;ments",
+            infoEmpty: "Affichage de l'&eacute;lement 0 &agrave; 0 sur 0 &eacute;l&eacute;ments",
+            infoFiltered: "(filtr&eacute; de _MAX_ &eacute;l&eacute;ments au total)",
+            infoPostFix: "",
+            loadingRecords: "Chargement en cours...",
+            zeroRecords: "Aucun &eacute;l&eacute;ment &agrave; afficher",
+            emptyTable: "Aucune donnÃ©e disponible dans le tableau",
+            paginate: {
+                first: "Premier",
+                previous: "Pr&eacute;c&eacute;dent",
+                next: "Suivant",
+                last: "Dernier"
+            },
+            aria: {
+                sortAscending: ": activer pour trier la colonne par ordre croissant",
+                sortDescending: ": activer pour trier la colonne par ordre dÃ©croissant"
+            }
+        },
+        buttons: [
+            {
+                extend: "copy",
+                className: "btn-sm"
+            },
+            {
+                extend: "csv",
+                className: "btn-sm"
+            },
+            {
+                extend: "excel",
+                className: "btn-sm"
+            },
+            {
+                extend: "pdfHtml5",
+                className: "btn-sm"
+            },
+            {
+                extend: "print",
+                className: "btn-sm"
+            },
+        ],
+        responsive: true
+    });
 </script>
 </body>
 </html>
