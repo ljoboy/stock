@@ -106,9 +106,9 @@ defined('STOCK_INITIAL')   OR define('STOCK_INITIAL', 4);
 
 
 //User level
-defined('STOCKCTRL_USER')      OR define('STOCKCTRL_USER', 0);
+defined('BUSINESS_USER') OR define('BUSINESS_USER', 0);
 defined('SUPERVISEUR_USER')    OR define('SUPERVISEUR_USER', 1);
-defined('BUSINESS_USER')       OR define('BUSINESS_USER', 2);
+defined('STOCKCTRL_USER') OR define('STOCKCTRL_USER', 2);
 defined('SUPER_ADMIN')       OR define('SUPER_ADMIN', 3); // Manager
 
 // Sites
@@ -122,4 +122,4 @@ defined('APP_NAME_FULL') OR define('APP_NAME_FULL', 'STK Management');
 defined('APP_NAME_MINI') OR define('APP_NAME_MINI', 'STK');
 defined('COMPAGNY_NAME') OR define('COMPAGNY_NAME', 'MACKEN PICES Sarl');
 
-defined('TYPE') OR define('TYPE', ['stock controller',' superviseur',  'directeur technique', 'super admin']);
+defined('TYPE') OR define('TYPE', ['directeur technique', 'superviseur', 'stock controller', 'super admin']);
