@@ -11,7 +11,7 @@
                 <table id="liste1" class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th>Id Article</th>
+							<th>#</th>
 							<th>Code</th>
 							<th>Fournisseur</th>
 							<th>Qte Min</th>
@@ -20,15 +20,19 @@
 						</tr>
 					</thead>
 					<tbody>
-						<?php foreach($articles as $a){ ?>
+					<?php
+					$nb = 0;
+					foreach ($articles as $a) {
+						?>
 							<tr>
-								<td><?php echo $a['id_article']; ?></td>
+								<td><?php echo ++$nb; ?></td>
 								<td><?php echo $a['code']; ?></td>
 								<td><?php echo $a['fournisseur']; ?></td>
 								<td><?php echo (int)$a['qte_min']; ?></td>
-								<td><?php echo $a['date_creation']; ?></td>
+								<td><?php echo nice_date($a['date_creation'], 'd M Y H:i:s'); ?></td>
 								<td>
-									<a href="<?php echo site_url('article/edit/'.$a['id_article']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span>Modifier</a>
+									<a href="<?php echo site_url('article/edit/' . $a['id_article']); ?>"
+									   class="btn btn-info btn-xs"><span class="fa fa-pencil"></span> Modifier</a>
 									<a href="<?php echo site_url('article/remove/'.$a['id_article']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Effacer</a>
 								</td>
 							</tr>
@@ -36,7 +40,7 @@
 					</tbody>
 					<tfoot>
 					<tr>
-						<th>Id Article</th>
+						<th>#</th>
 						<th>Code</th>
 						<th>Fournisseur</th>
 						<th>Qte Min</th>

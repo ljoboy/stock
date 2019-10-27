@@ -8,9 +8,9 @@ class Article extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-		if (!isset($this->session->is_connected)){
+		if (!isset($this->session->is_connected) && ($this->session->is_connected !== true))
 			redirect('auth/index');
-		}
+		if ($this->session->level >= STOCKCTRL_USER)
         $this->load->model('Article_model');
     } 
 
@@ -33,7 +33,6 @@ class Article extends CI_Controller{
 		$this->form_validation->set_rules('code','Code','required|max_length[45]');
 		$this->form_validation->set_rules('fournisseur','Fournisseur','required|max_length[50]');
 		$this->form_validation->set_rules('qte_min','Qte Min','required|integer');
-		$this->form_validation->set_rules('date_creation','Date Creation','required');
 		
 		if($this->form_validation->run())     
         {   
