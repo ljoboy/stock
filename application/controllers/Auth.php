@@ -34,12 +34,10 @@ class Auth extends CI_Controller {
 				} else {
 					$this->session->set_flashdata('error', "<h3>Echec d'authentification !</h3> Combinaison <strong>Pseudo / Mot de passe</strong> Incorrecte !");
 					$this->session->set_flashdata('pseudo', $pseudo);
-					redirect();
 				}
-			} else {
-				$data['title'] = "page d'authentification";
-				$this->load->view('layouts/login', $data, false);
 			}
+			$data['title'] = "page d'authentification";
+			$this->load->view('layouts/login', $data, false);
 		}
 	}
 
