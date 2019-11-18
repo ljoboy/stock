@@ -8,10 +8,9 @@ class Article extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-		if (!isset($this->session->is_connected) && ($this->session->is_connected !== true))
+		if ((!isset($this->session->is_connected) && ($this->session->is_connected !== true)) || !($this->session->level >= STOCKCTRL_USER))
 			redirect('auth/index');
-		if ($this->session->level >= STOCKCTRL_USER)
-        $this->load->model('Article_model');
+		$this->load->model('Article_model');
     } 
 
     /*

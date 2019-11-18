@@ -12,6 +12,8 @@ class Sorti extends CI_Controller{
 			redirect('auth/index');
 		}
         $this->load->model('Sorti_model');
+		$this->load->model('Articles_site_model');
+		$this->load->model('site_model');
     } 
 
     /*
@@ -19,8 +21,9 @@ class Sorti extends CI_Controller{
      */
     function index()
     {
-        $data['sortis'] = $this->Sorti_model->get_all_sortis();
-        
+		$site = $this->site_model->get_by_superviseur($this->session->id);
+		$site = ($site) ? $site : null;
+		$data['sortis'] = $this->Sorti_model->get_all_sortis($site['id_site']);
         $data['_view'] = 'sorti/index';
         $this->load->view('layouts/main',$data);
     }

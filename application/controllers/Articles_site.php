@@ -12,6 +12,7 @@ class Articles_site extends CI_Controller{
 			redirect('auth/index');
 		}
         $this->load->model('Articles_site_model');
+		$this->load->model('site_model');
     } 
 
     /*
@@ -19,8 +20,9 @@ class Articles_site extends CI_Controller{
      */
     function index()
     {
-        $data['articles_sites'] = $this->Articles_site_model->get_all_articles_sites();
-        
+		$site = $this->site_model->get_by_superviseur($this->session->id);
+		$site = ($site) ? $site : null;
+		$data['articles_sites'] = $this->Articles_site_model->get_all_articles_sites($site['id_site']);
         $data['_view'] = 'articles_site/index';
         $this->load->view('layouts/main',$data);
     }
@@ -28,7 +30,7 @@ class Articles_site extends CI_Controller{
     /*
      * Adding a new articles_site
      */
-    function add()
+	private function add()
     {   
         $this->load->library('form_validation');
 
@@ -67,7 +69,7 @@ class Articles_site extends CI_Controller{
     /*
      * Editing a articles_site
      */
-    function edit($id_articles_site)
+	private function edit($id_articles_site)
     {   
         // check if the articles_site exists before trying to edit it
         $data['articles_site'] = $this->Articles_site_model->get_articles_site($id_articles_site);
@@ -114,7 +116,7 @@ class Articles_site extends CI_Controller{
     /*
      * Deleting articles_site
      */
-    function remove($id_articles_site)
+	private function remove($id_articles_site)
     {
         $articles_site = $this->Articles_site_model->get_articles_site($id_articles_site);
 

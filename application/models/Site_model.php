@@ -24,8 +24,8 @@ class Site_model extends CI_Model
      */
     function get_all_sites()
     {
-        $this->db->order_by('id_site', 'desc');
-        return $this->db->get('sites')->result_array();
+		$this->db->order_by('id', 'desc');
+		return $this->db->get('sites_liste')->result_array();
     }
         
     /*
@@ -53,4 +53,12 @@ class Site_model extends CI_Model
     {
         return $this->db->delete('sites',array('id_site'=>$id_site));
     }
+
+	/*
+	* Get site by superviseur
+	*/
+	public function get_by_superviseur($id_user)
+	{
+		return $this->db->get_where('sites', array('superviseur' => $id_user))->row_array();
+	}
 }

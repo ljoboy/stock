@@ -22,10 +22,13 @@ class Sorti_model extends CI_Model
     /*
      * Get all sortis
      */
-    function get_all_sortis()
+	function get_all_sortis($id_site = null)
     {
         $this->db->order_by('id_sorti', 'desc');
-        return $this->db->get('sortis')->result_array();
+		if ($id_site !== null) {
+			$this->db->where('id_site', $id_site);
+		}
+		return $this->db->get('sorti_list')->result_array();
     }
         
     /*

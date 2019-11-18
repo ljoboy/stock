@@ -93,105 +93,170 @@
 				</div>
 			</div>
 			<!-- sidebar menu: : style can be found in sidebar.less -->
-			<ul class="sidebar-menu">
-				<li class="header">MENU PRINCIPAL</li>
-				<li class="<?php echo current_page('dashboard') ?>">
-					<a href="<?php echo site_url('dashboard/index');?>">
-						<i class="fa fa-dashboard"></i> <span>Tableau de bord</span>
-					</a>
-				</li>
-				<li class="<?php echo current_page('article') ?>">
-					<a href="#">
-						<i class="fa fa-cart-arrow-down"></i> <span>Article</span>
-					</a>
-					<ul class="treeview-menu">
-						<li class="<?php echo current_page('article/add') ?>">
-							<a href="<?php echo site_url('article/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
-						</li>
-						<li class="<?php echo current_page('article/index') ?>">
-							<a href="<?php echo site_url('article/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
-						</li>
-					</ul>
-				</li>
-				<li class="<?php echo current_page('articles_site') ?>">
-					<a href="#">
-						<i class="fa fa-ambulance"></i> <span>Articles Site</span>
-					</a>
-					<ul class="treeview-menu">
-						<li class="<?php echo current_page('articles_site/add') ?>">
-							<a href="<?php echo site_url('articles_site/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
-						</li>
-						<li class="<?php echo current_page('articles_site/index') ?>">
-							<a href="<?php echo site_url('articles_site/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
-						</li>
-					</ul>
-				</li>
-				<li class="<?php echo current_page('notification') ?>">
-					<a href="#">
-						<i class="fa fa-bell"></i> <span>Notification</span>
-					</a>
-					<ul class="treeview-menu">
-						<li class="<?php echo current_page('notification/add') ?>">
-							<a href="<?php echo site_url('notification/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
-						</li>
-						<li class="<?php echo current_page('notification/index') ?>">
-							<a href="<?php echo site_url('notification/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
-						</li>
-					</ul>
-				</li>
-				<li class="<?php echo current_page('site') ?>">
-					<a href="#">
-						<i class="fa fa-map-marker"></i> <span>Site</span>
-					</a>
-					<ul class="treeview-menu">
-						<li class="<?php echo current_page('site/add') ?>">
-							<a href="<?php echo site_url('site/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
-						</li>
-						<li class="<?php echo current_page('site/index') ?>">
-							<a href="<?php echo site_url('site/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
-						</li>
-					</ul>
-				</li>
-				<li class="<?php echo current_page('sorti') ?>">
-					<a href="#">
-						<i class="fa fa-paper-plane-o"></i> <span>Sorti</span>
-					</a>
-					<ul class="treeview-menu">
-						<li class="<?php echo current_page('sorti/add') ?>">
-							<a href="<?php echo site_url('sorti/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
-						</li>
-						<li class="<?php echo current_page('sorti/index') ?>">
-							<a href="<?php echo site_url('sorti/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
-						</li>
-					</ul>
-				</li>
-				<li class="<?php echo current_page('transfert') ?>">
-					<a href="#">
-						<i class="fa fa-arrow-right"></i> <span>Transfert</span>
-					</a>
-					<ul class="treeview-menu">
-						<li class="<?php echo current_page('transfert/add') ?>">
-							<a href="<?php echo site_url('transfert/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
-						</li>
-						<li class="<?php echo current_page('transfert/index') ?>">
-							<a href="<?php echo site_url('transfert/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
-						</li>
-					</ul>
-				</li>
-				<li class="<?php echo current_page('user') ?>">
-					<a href="#">
-						<i class="fa fa-user-circle"></i> <span>User</span>
-					</a>
-					<ul class="treeview-menu">
-						<li class="<?php echo current_page('user/add') ?>">
-							<a href="<?php echo site_url('user/add');?>"><i class="fa fa-plus"></i> Ajouter</a>
-						</li>
-						<li class="<?php echo current_page('user/index') ?>">
-							<a href="<?php echo site_url('user/index');?>"><i class="fa fa-list-ul"></i> Lister</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
+			<?php if ($this->session->level == SUPERVISEUR_USER): ?>
+				<ul class="sidebar-menu">
+					<li class="header">MENU PRINCIPAL</li>
+					<li class="<?php echo current_page('dashboard') ?>">
+						<a href="<?php echo site_url('dashboard/index'); ?>">
+							<i class="fa fa-dashboard"></i> <span>Tableau de bord</span>
+						</a>
+					</li>
+					<li class="<?php echo current_page('articles_site') ?>">
+						<a href="#">
+							<i class="fa fa-ambulance"></i> <span>Articles</span>
+						</a>
+						<ul class="treeview-menu">
+							<li class="<?php echo current_page('superviseur/articles') ?>">
+								<a href="<?php echo site_url('superviseur/articles'); ?>"><i class="fa fa-list-ul"></i>
+									Liste</a>
+							</li>
+						</ul>
+					</li>
+					<li class="<?php echo current_page('sorti') ?>">
+						<a href="#">
+							<i class="fa fa-paper-plane-o"></i> <span>Sorties</span>
+						</a>
+						<ul class="treeview-menu">
+							<li class="<?php echo current_page('superviseur/sorties_add') ?>">
+								<a href="<?php echo site_url('superviseur/sorties_add'); ?>"><i class="fa fa-plus"></i>
+									Ajouter</a>
+							</li>
+							<li class="<?php echo current_page('superviseur/sorties_liste') ?>">
+								<a href="<?php echo site_url('superviseur/sorties_liste'); ?>"><i
+										class="fa fa-list-ul"></i> Liste</a>
+							</li>
+						</ul>
+					</li>
+					<li class="<?php echo current_page('transfert') ?>">
+						<a href="#">
+							<i class="fa fa-arrow-right"></i> <span>Demande</span>
+						</a>
+						<ul class="treeview-menu">
+							<li class="<?php echo current_page('superviseur/demande_add') ?>">
+								<a href="<?php echo site_url('superviseur/demande_add'); ?>"><i class="fa fa-plus"></i>
+									Ajouter</a>
+							</li>
+							<li class="<?php echo current_page('superviseur/demande_liste') ?>">
+								<a href="<?php echo site_url('superviseur/demande_liste'); ?>"><i
+										class="fa fa-list-ul"></i> Lister</a>
+							</li>
+						</ul>
+					</li>
+					<li class="<?php echo current_page('entrees') ?>">
+						<a href="<?php echo site_url('entrees/index'); ?>">
+							<i class="fa fa-inbox"></i> <span>Entrées</span>
+						</a>
+					</li>
+				</ul>
+			<?php elseif ($this->session->level == STOCKCTRL_USER): ?>
+			<?php elseif ($this->session->level == BUSINESS_USER): ?>
+			<?php elseif ($this->session->level == SUPER_ADMIN): ?>
+				<ul class="sidebar-menu">
+					<li class="header">MENU PRINCIPAL</li>
+					<li class="<?php echo current_page('dashboard') ?>">
+						<a href="<?php echo site_url('dashboard/index'); ?>">
+							<i class="fa fa-dashboard"></i> <span>Tableau de bord</span>
+						</a>
+					</li>
+					<li class="<?php echo current_page('article') ?>">
+						<a href="#">
+							<i class="fa fa-cart-arrow-down"></i> <span>Article</span>
+						</a>
+						<ul class="treeview-menu">
+							<li class="<?php echo current_page('article/add') ?>">
+								<a href="<?php echo site_url('article/add'); ?>"><i class="fa fa-plus"></i> Ajouter</a>
+							</li>
+							<li class="<?php echo current_page('article/index') ?>">
+								<a href="<?php echo site_url('article/index'); ?>"><i class="fa fa-list-ul"></i> Lister</a>
+							</li>
+						</ul>
+					</li>
+					<li class="<?php echo current_page('articles_site') ?>">
+						<a href="#">
+							<i class="fa fa-ambulance"></i> <span>Articles Site</span>
+						</a>
+						<ul class="treeview-menu">
+							<li class="<?php echo current_page('articles_site/add') ?>">
+								<a href="<?php echo site_url('articles_site/add'); ?>"><i class="fa fa-plus"></i>
+									Ajouter</a>
+							</li>
+							<li class="<?php echo current_page('articles_site/index') ?>">
+								<a href="<?php echo site_url('articles_site/index'); ?>"><i class="fa fa-list-ul"></i>
+									Lister</a>
+							</li>
+						</ul>
+					</li>
+					<li class="<?php echo current_page('notification') ?>">
+						<a href="#">
+							<i class="fa fa-bell"></i> <span>Notification</span>
+						</a>
+						<ul class="treeview-menu">
+							<li class="<?php echo current_page('notification/add') ?>">
+								<a href="<?php echo site_url('notification/add'); ?>"><i class="fa fa-plus"></i> Ajouter</a>
+							</li>
+							<li class="<?php echo current_page('notification/index') ?>">
+								<a href="<?php echo site_url('notification/index'); ?>"><i class="fa fa-list-ul"></i>
+									Lister</a>
+							</li>
+						</ul>
+					</li>
+					<li class="<?php echo current_page('site') ?>">
+						<a href="#">
+							<i class="fa fa-map-marker"></i> <span>Site</span>
+						</a>
+						<ul class="treeview-menu">
+							<li class="<?php echo current_page('site/add') ?>">
+								<a href="<?php echo site_url('site/add'); ?>"><i class="fa fa-plus"></i> Ajouter</a>
+							</li>
+							<li class="<?php echo current_page('site/index') ?>">
+								<a href="<?php echo site_url('site/index'); ?>"><i class="fa fa-list-ul"></i> Lister</a>
+							</li>
+						</ul>
+					</li>
+					<li class="<?php echo current_page('sorti') ?>">
+						<a href="#">
+							<i class="fa fa-paper-plane-o"></i> <span>Sorti</span>
+						</a>
+						<ul class="treeview-menu">
+							<li class="<?php echo current_page('sorti/add') ?>">
+								<a href="<?php echo site_url('sorti/add'); ?>"><i class="fa fa-plus"></i> Ajouter</a>
+							</li>
+							<li class="<?php echo current_page('sorti/index') ?>">
+								<a href="<?php echo site_url('sorti/index'); ?>"><i class="fa fa-list-ul"></i>
+									Lister</a>
+							</li>
+						</ul>
+					</li>
+					<li class="<?php echo current_page('transfert') ?>">
+						<a href="#">
+							<i class="fa fa-arrow-right"></i> <span>Transfert</span>
+						</a>
+						<ul class="treeview-menu">
+							<li class="<?php echo current_page('transfert/add') ?>">
+								<a href="<?php echo site_url('transfert/add'); ?>"><i class="fa fa-plus"></i>
+									Ajouter</a>
+							</li>
+							<li class="<?php echo current_page('transfert/index') ?>">
+								<a href="<?php echo site_url('transfert/index'); ?>"><i class="fa fa-list-ul"></i>
+									Lister</a>
+							</li>
+						</ul>
+					</li>
+					<li class="<?php echo current_page('user') ?>">
+						<a href="#">
+							<i class="fa fa-user-circle"></i> <span>User</span>
+						</a>
+						<ul class="treeview-menu">
+							<li class="<?php echo current_page('user/add') ?>">
+								<a href="<?php echo site_url('user/add'); ?>"><i class="fa fa-plus"></i> Ajouter</a>
+							</li>
+							<li class="<?php echo current_page('user/index') ?>">
+								<a href="<?php echo site_url('user/index'); ?>"><i class="fa fa-list-ul"></i> Lister</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+			<?php endif; ?>
 		</section>
 		<!-- /.sidebar -->
 	</aside>

@@ -8,21 +8,7 @@
           	<div class="box-body">
           		<div class="row clearfix">
 					<div class="col-md-6">
-						<label for="password" class="control-label"><span class="text-danger">*</span>Password</label>
-						<div class="form-group">
-							<input autocomplete="new-password" type="password" name="password" value="<?php echo $this->input->post('password'); ?>" class="form-control" id="password" />
-							<span class="text-danger"><?php echo form_error('password');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="password2" class="control-label"><span class="text-danger">*</span>Confirmer</label>
-						<div class="form-group">
-							<input autocomplete="new-password" type="password" name="password2" value="<?php echo $this->input->post('password2'); ?>" class="form-control" id="password2" />
-							<span class="text-danger"><?php echo form_error('password2');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="username" class="control-label"><span class="text-danger">*</span>Username</label>
+						<label for="username" class="control-label"><span class="text-danger">*</span>Nom d'utilisateur</label>
 						<div class="form-group">
 							<input type="text" name="username" value="<?php echo $this->input->post('username'); ?>" class="form-control" id="username" />
 							<span class="text-danger"><?php echo form_error('username');?></span>
@@ -33,13 +19,6 @@
 						<div class="form-group">
 							<input type="text" name="email" value="<?php echo $this->input->post('email'); ?>" class="form-control" id="email" />
 							<span class="text-danger"><?php echo form_error('email');?></span>
-						</div>
-					</div>
-					<div class="col-md-6">
-						<label for="phone" class="control-label">Phone</label>
-						<div class="form-group">
-							<input type="text" name="phone" value="<?php echo $this->input->post('phone'); ?>" class="form-control" id="phone" />
-							<span class="text-danger"><?php echo form_error('phone');?></span>
 						</div>
 					</div>
 					<div class="col-md-6">
@@ -61,7 +40,35 @@
 							<span class="text-danger"><?php echo form_error('nom_complet');?></span>
 						</div>
 					</div>
+					<div class="col-md-6">
+						<label for="password" class="control-label"><span class="text-danger">*</span>Mot de
+							passe</label>
+						<div class="form-group">
+							<input autocomplete="new-password" type="password" name="password"
+								   value="<?php echo $this->input->post('password'); ?>" class="form-control"
+								   id="password"/>
+							<span class="text-danger"><?php echo form_error('password'); ?></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="password2" class="control-label"><span class="text-danger">*</span>Confirmer</label>
+						<div class="form-group">
+							<input autocomplete="new-password" type="password" name="password2"
+								   value="<?php echo $this->input->post('password2'); ?>" class="form-control"
+								   id="password2"/>
+							<span class="text-danger"><?php echo form_error('password2'); ?></span>
+						</div>
+					</div>
+					<div class="col-md-6">
+						<label for="phone" class="control-label">Phone</label>
+						<div class="form-group">
+							<input type="text" name="phone" value="<?php echo $this->input->post('phone'); ?>"
+								   class="form-control" id="phone"/>
+							<span class="text-danger"><?php echo form_error('phone'); ?></span>
+						</div>
+					</div>
 				</div>
+
 			</div>
           	<div class="box-footer">
             	<button type="submit" class="btn btn-success">

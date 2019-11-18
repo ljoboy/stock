@@ -8,9 +8,11 @@ class Site extends CI_Controller{
     function __construct()
     {
         parent::__construct();
-		if (!isset($this->session->is_connected)){
+		if (!isset($this->session->is_connected) || ($this->session->is_connected !== true)) {
 			redirect('auth/index');
 		}
+		if ($this->session->level < STOCKCTRL_USER) redirect('auth/index');
+
         $this->load->model('Site_model');
     } 
 
@@ -20,7 +22,7 @@ class Site extends CI_Controller{
     function index()
     {
         $data['sites'] = $this->Site_model->get_all_sites();
-        
+//        var_dump($data['sites']);die;
         $data['_view'] = 'site/index';
         $this->load->view('layouts/main',$data);
     }

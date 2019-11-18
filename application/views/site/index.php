@@ -11,25 +11,32 @@
                 <table id="liste1" class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th>Id Site</th>
+							<th>#</th>
+							<th>Nom Site</th>
 							<th>Type</th>
 							<th>Superviseur</th>
-							<th>Nom Site</th>
 							<th>Details</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
                    <tbody>
-					   <?php foreach($sites as $s){ ?>
+				   <?php $nb = 0;
+				   foreach ($sites as $s) {
+					   if ($s['type'] == SITE_WAREHOUSE) $type = 'Warehouse'; elseif ($s['type'] == SITE_NORMAL) $type = 'Site';
+					   else
+						   $type = '';
+					   ?>
 						   <tr>
-							   <td><?php echo $s['id_site']; ?></td>
-							   <td><?php echo $s['type']; ?></td>
-							   <td><?php echo $s['superviseur']; ?></td>
-							   <td><?php echo $s['nom_site']; ?></td>
-							   <td><?php echo $s['details']; ?></td>
+							   <td><?php echo ++$nb; ?></td>
+							   <td><?php echo ucwords($s['nom']); ?></td>
+							   <td><?php echo $type; ?></td>
+							   <td><?php echo ucwords($s['nom_complet']); ?></td>
+							   <td><?php echo ucfirst($s['details']); ?></td>
 							   <td>
-								   <a href="<?php echo site_url('site/edit/'.$s['id_site']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span>Modifier</a>
-								   <a href="<?php echo site_url('site/remove/'.$s['id_site']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Effacer</a>
+								   <a href="<?php echo site_url('site/edit/' . $s['id']); ?>"
+									  class="btn btn-info btn-xs"><span class="fa fa-pencil"></span>Modifier</a>
+								   <a href="<?php echo site_url('site/remove/' . $s['id']); ?>"
+									  class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Effacer</a>
 							   </td>
 						   </tr>
 					   <?php } ?>

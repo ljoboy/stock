@@ -113,7 +113,7 @@ defined('SUPER_ADMIN')       OR define('SUPER_ADMIN', 3); // Manager
 
 // Sites
 defined('SITE_NORMAL')      OR define('SITE_NORMAL', 0);
-defined('SITE_ WAREHOUSE')  OR define('SITE_ WAREHOUSE', 1);
+defined('SITE_ WAREHOUSE') OR define('SITE_WAREHOUSE', 1);
 
 defined('RECORDS_PER_PAGE') OR define('RECORDS_PER_PAGE', 10);
 

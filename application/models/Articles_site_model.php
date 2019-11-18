@@ -22,10 +22,14 @@ class Articles_site_model extends CI_Model
     /*
      * Get all articles_sites
      */
-    function get_all_articles_sites()
+	function get_all_articles_sites($id_site = null)
     {
-        $this->db->order_by('id_articles_site', 'desc');
-        return $this->db->get('articles_site')->result_array();
+
+		$this->db->order_by('id', 'desc');
+		if ($id_site !== null) {
+			$this->db->where('id_site', $id_site);
+		}
+		return $this->db->get('articles_sites_liste')->result_array();
     }
         
     /*

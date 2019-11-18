@@ -31,15 +31,18 @@
 					<div class="col-md-6">
 						<label for="superviseur" class="control-label"><span class="text-danger">*</span>User</label>
 						<div class="form-group">
-							<select name="superviseur" class="form-control">
+							<select id="superviseur" name="superviseur" class="form-control">
 								<option value="">select user</option>
-								<?php 
+								<?php
+								$levels = array('', 'Superviseur', 'Stock Controlleur', 'Super Admin');
 								foreach($all_users as $user)
 								{
-									$selected = ($user['id_user'] == $this->input->post('superviseur')) ? ' selected="selected"' : "";
-
-									echo '<option value="'.$user['id_user'].'" '.$selected.'>'.$user['nom_complet'].'</option>';
-								} 
+									if ($user['level'] != BUSINESS_USER) {
+										$selected = ($user['id_user'] == $this->input->post('superviseur')) ? ' selected="selected"' : "";
+										$level = $levels[$user['level']];
+										echo '<option value="' . $user['id_user'] . '" ' . $selected . '>' . $user['nom_complet'] . " - $level" . '</option>';
+									}
+								}
 								?>
 							</select>
 							<span class="text-danger"><?php echo form_error('superviseur');?></span>

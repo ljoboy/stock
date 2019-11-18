@@ -25,20 +25,20 @@
 						</div>
 					</div>
 					<div class="col-md-6">
-						<label for="id_site" class="control-label"><span class="text-danger">*</span>Site</label>
+						<label for="id" class="control-label"><span class="text-danger">*</span>Site</label>
 						<div class="form-group">
-							<select name="id_site" class="form-control">
+							<select name="id" class="form-control">
 								<option value="">select site</option>
 								<?php 
 								foreach($all_sites as $site)
 								{
-									$selected = ($site['id_site'] == $this->input->post('id_site')) ? ' selected="selected"' : "";
+									$selected = ($site['id'] == $this->input->post('id')) ? ' selected="selected"' : "";
 
-									echo '<option value="'.$site['id_site'].'" '.$selected.'>'.$site['nom_site'].'</option>';
+									echo '<option value="' . $site['id'] . '" ' . $selected . '>' . $site['nom'] . '</option>';
 								} 
 								?>
 							</select>
-							<span class="text-danger"><?php echo form_error('id_site');?></span>
+							<span class="text-danger"><?php echo form_error('id'); ?></span>
 						</div>
 					</div>
 					<div class="col-md-6">

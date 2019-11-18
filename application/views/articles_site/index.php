@@ -2,48 +2,37 @@
     <div class="col-md-12">
         <div class="box">
             <div class="box-header">
-                <h3 class="box-title">Articles Sites > Lister</h3>
-            	<div class="box-tools">
-                    <a href="<?php echo site_url('articles_site/add'); ?>" class="btn btn-success btn-sm"> Ajouter</a>
-                </div>
+				<h3 class="box-title">Articles en stock > Liste</h3>
             </div>
             <div class="box-body">
                 <table id="liste1" class="table table-bordered table-striped">
 					<thead>
 						<tr>
-							<th>Id Articles Site</th>
-							<th>Id Article</th>
-							<th>Id Site</th>
-							<th>Qte Min</th>
+							<th>#</th>
+							<th>Article</th>
 							<th>Qte</th>
-							<th>Date Update</th>
+							<th>Date Modification</th>
 							<th>Actions</th>
 						</tr>
 					</thead>
                    <tbody>
-				   `<?php foreach($articles_sites as $a){ ?>
+				   <?php $nb = 0;
+				   foreach ($articles_sites as $a) { ?>
 					   <tr>
-						   <td><?php echo $a['id_articles_site']; ?></td>
-						   <td><?php echo $a['id_article']; ?></td>
-						   <td><?php echo $a['id_site']; ?></td>
-						   <td><?php echo (int)$a['qte_min']; ?></td>
+						   <td><?php echo ++$nb; ?></td>
+						   <td><?php echo $a['code']; ?></td>
 						   <td><?php echo (int)$a['qte']; ?></td>
-						   <td><?php echo $a['date_update']; ?></td>
-						   <td>
-							   <a href="<?php echo site_url('articles_site/edit/'.$a['id_articles_site']); ?>" class="btn btn-info btn-xs"><span class="fa fa-pencil"></span>Modifier</a>
-							   <a href="<?php echo site_url('articles_site/remove/'.$a['id_articles_site']); ?>" class="btn btn-danger btn-xs"><span class="fa fa-trash"></span> Effacer</a>
-						   </td>
+						   <td><?php echo nice_date($a['date_updated'], 'd M Y H:i:s'); ?></td>
+						   <td></td>
 					   </tr>
-				   <?php } ?>`
+				   <?php } ?>
 				   </tbody>
 					<tfoot>
 					<tr>
-						<th>Id Articles Site</th>
-						<th>Id Article</th>
-						<th>Id Site</th>
-						<th>Qte Min</th>
+						<th>#</th>
+						<th>Article</th>
 						<th>Qte</th>
-						<th>Date Update</th>
+						<th>Date Modification</th>
 						<th>Actions</th>
 					</tr>
 					</tfoot>

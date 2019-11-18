@@ -8,18 +8,18 @@
 	<!-- Tell the browser to be responsive to screen width -->
 	<meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
 	<!-- Bootstrap 3.3.6 -->
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css');?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap.min.css'); ?>">
 	<!-- Font Awesome -->
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css');?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/font-awesome.min.css'); ?>">
 	<!-- Ionicons -->
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
 	<!-- Datetimepicker -->
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datetimepicker.min.css');?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/bootstrap-datetimepicker.min.css'); ?>">
 	<!-- Theme style -->
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/AdminLTE.min.css');?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/AdminLTE.min.css'); ?>">
 	<!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-	<link rel="stylesheet" href="<?php echo base_url('assets/css/_all-skins.min.css');?>">
+	<link rel="stylesheet" href="<?php echo base_url('assets/css/_all-skins.min.css'); ?>">
 
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -41,7 +41,7 @@
 	<!-- /.login-logo -->
 	<div class="login-box-body">
 		<p class="login-box-msg">Authentifiez-vous pour commencer</p>
-		<hr />
+		<hr/>
 		<?php
 		if (isset($this->session->error)) :
 			?>
@@ -54,18 +54,23 @@
 
 		<?= form_open(site_url('auth/index')) ?>
 		<div class="form-group has-feedback">
-			<label for="pseudo"></label>
-			<input autocomplete="username" class="form-control" id="pseudo" name="pseudo" placeholder="Nom d'utilisateur"
-				   type="text" value="<?= $this->session->pseudo; ?>"/>
-			<span class="glyphicon glyphicon-user form-control-feedback"></span>
-			<span class="text-danger"><?php echo form_error('pseudo'); ?></span>
+			<label for="pseudo"><?php echo form_error('pseudo'); ?></label>
+			<div class="input-group">
+				<input autocomplete="username" class="form-control" id="pseudo" name="pseudo"
+					   placeholder="Nom d'utilisateur"
+					   type="text" value="<?= $this->session->pseudo; ?>"/>
+				<span class="input-group-addon"><i class="fa fa-user"></i></span>
+			</div>
 		</div>
 		<div class="form-group has-feedback">
-			<label for="mdp"></label>
-			<input autocomplete="current-password" class="form-control" id="mdp" name="mdp" placeholder="Mot de passe"
-				   type="password"/>
-			<span class="glyphicon glyphicon-lock form-control-feedback"></span>
-			<span class="text-danger"><?php echo form_error('mdp'); ?></span>
+			<label for="mdp" class="text-danger"><?php echo form_error('mdp'); ?></label>
+			<div class="input-group">
+				<input autocomplete="current-password" class="form-control" id="mdp" name="mdp"
+					   placeholder="Mot de passe"
+					   type="password"/>
+				<span onclick="textify(this)" class="input-group-addon" style="cursor: pointer"><i
+						class="fa fa-eye"></i></span>
+			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-8">
@@ -88,7 +93,8 @@
 	</div>
 	<!-- /.login-box-body -->
 	<footer class="footer text-center">
-		<b>Code with <i class="fa fa-heart text-red"></i> by <a target="_blank" href="https://about.me/ljoboy">Lijerbul LJOBOY</a></b>
+		<b>Code with <i class="fa fa-heart text-red"></i> by <a target="_blank" href="https://about.me/ljoboy">Lijerbul
+				LJOBOY</a></b>
 	</footer>
 </div>
 <!-- /.login-box -->
@@ -98,7 +104,20 @@
 <!-- Bootstrap 3.3.7 -->
 <script src="<?= base_url('assets/js/bootstrap.min.js'); ?>"></script>
 <script>
+    const mdp = document.getElementById('mdp');
+    let isMdp = true;
 
+    function textify(e) {
+        if (isMdp) {
+            mdp.type = "text";
+            e.firstElementChild.className = "fa fa-eye-slash";
+            isMdp = false;
+        } else {
+            mdp.type = "password";
+            e.firstElementChild.className = "fa fa-eye";
+            isMdp = true;
+        }
+    }
 </script>
 </body>
 
