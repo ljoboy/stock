@@ -14,8 +14,8 @@
 								<option value="">select</option>
 								<?php 
 								$type_values = array(
-									'0'=>'Warehouse',
-									'1'=>'Normal',
+									'1'=>'Warehouse',
+									'0'=>'Normal',
 								);
 
 								foreach($type_values as $value => $display_text)

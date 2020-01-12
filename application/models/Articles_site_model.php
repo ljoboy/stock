@@ -24,7 +24,6 @@ class Articles_site_model extends CI_Model
      */
 	function get_all_articles_sites($id_site = null)
     {
-
 		$this->db->order_by('id', 'desc');
 		if ($id_site !== null) {
 			$this->db->where('id_site', $id_site);
